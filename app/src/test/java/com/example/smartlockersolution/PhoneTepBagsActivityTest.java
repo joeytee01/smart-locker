@@ -147,7 +147,7 @@ public class PhoneTepBagsActivityTest {
             callback.onSuccess(jsonResponse);
             latch.countDown();
             return null;
-        }).when(mockApiManager).callTepImages(anyString(), anyInt(), anyString(), any(), anyString(), any());
+        }).when(mockApiManager).callTepImages(anyString(), anyString(), anyString(), any(), anyString(), any());
 
         scenario = ActivityScenario.launch(PhoneTepBagsActivity.class);
         scenario.onActivity(activity -> {
@@ -190,7 +190,7 @@ public class PhoneTepBagsActivityTest {
             callback.onFailure("Network Error");
             latch.countDown();
             return null;
-        }).when(mockApiManager).callTepImages(anyString(), anyInt(), anyString(), any(), anyString(), any());
+        }).when(mockApiManager).callTepImages(anyString(), anyString(), anyString(), any(), anyString(), any());
 
         scenario = ActivityScenario.launch(PhoneTepBagsActivity.class);
         scenario.onActivity(activity -> {
