@@ -25,7 +25,7 @@ Android Development: Java
 Mock API Tool: Mockoon
 
 <h2>API</h2>
-[Download File](./openapi.ext)
+[Download File](https://github.com/joeytee01/smart-locker/blob/master/openapi.yaml)
 
 <h2>Future Improvements</h2>
 
