@@ -2,7 +2,7 @@
 
 Smart Locker is an Android application designed to provide secure and efficient locker management using digital authentication and automation. The application consists of two parts:
 
-Tablet Application – Manages locker depost and withdraw.
+Tablet Application – Manages locker deposit and withdraw.
 
 Phone Application – Scan Qr and take photo for evidence.
 
