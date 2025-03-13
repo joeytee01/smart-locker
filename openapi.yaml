@@ -1,0 +1,657 @@
+openapi: 3.0.0
+info:
+  title: MEL API
+  description: API to for managing lockers via Tablet/Phone
+  version: 1.0.0
+servers:
+  - url: "https://d1ly1mk9p6.execute-api.ap-southeast-1.amazonaws.com/development"
+paths:
+  /login:
+    post:
+      tags:
+        - General
+      summary: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                role: investigator
+                action: deposit
+                division_pass_no: DEF8765123
+                pin: "123456"
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                messsage: user authenticated succesfully
+                data:
+                  api_token: DPclyTKheWZAx0sBPQlnQyC14C7pdBMl5bXZxy1bNAbIRC3XwD
+  /users/enrolls:
+    post:
+      tags:
+        - General
+      summary: self enroll
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                qr_code: oLZyZRSfJc
+                division_pass_no: DEF8765123
+                email: Andre_koh1@example.gov.sg
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: z39ZIfByXGtUso7ulgAfmF0R07AWu3t2SoCRZtfec_ZL1npGWl
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                messsage: user enrolled succesfully
+                data: null
+  /emails:
+    get:
+      tags:
+        - General
+      summary: Get emails
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer abc123
+        - name: role
+          in: query
+          schema:
+            type: string
+          description: cs-officer and investigator
+          example: investigator
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                messsage: user authenticated succesfully
+                data:
+                  emails:
+                    - twp@gmail.com
+                    - kwx@hotmail.com
+  /lockers:
+    get:
+      tags:
+        - General
+      summary: Get available lockers
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer abc123
+        - name: location_id
+          in: query
+          schema:
+            type: integer
+          example: "1"
+        - name: status
+          in: query
+          schema:
+            type: string
+          description: "available, occupied"
+          example: available
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: lockers fetched successfully
+                data:
+                  - type: small
+                    location_id: 1
+                    cells:
+                      - id: 12
+                        status: available
+                      - id: 15
+                        status: available
+                  - type: medium
+                    location_id: 1
+                    cells:
+                      - id: 21
+                        status: available
+                      - id: 22
+                        status: available
+                  - type: large
+                    location_id: 1
+                    cells:
+                      - id: 31
+                        status: available
+                      - id: 32
+                        status: available
+                  - type: extra-large
+                    location_id: 1
+                    cells:
+                      - id: 40
+                        status: available
+                      - id: 41
+                        status: available
+  /lockers/all:
+    get:
+      tags:
+        - General
+      summary: Get lockers and teps
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: all locker fetched successfully
+                data:
+                  - id: 2
+                    bin: "2"
+                    status: occupied
+                    journey_status: investigator-deposit
+                    size: small
+                    teps:
+                      - "9981880"
+                  - id: 1
+                    bin: "1"
+                    status: available
+                    journey_status: ""
+                    size: small
+                    teps: []
+                  - id: 3
+                    bin: "3"
+                    status: available
+                    journey_status: ""
+                    size: small
+                    teps: []
+                  - id: 4
+                    bin: "4"
+                    status: occupied
+                    journey_status: cs-officer-deposit
+                    size: small
+                    teps: []
+                  - id: 5
+                    bin: "5"
+                    status: available
+                    journey_status: ""
+                    size: small
+                    teps: []
+                  - id: 6
+                    bin: "6"
+                    status: occupied
+                    journey_status: cs-officer-deposit
+                    size: small
+                    teps: []
+                  - id: 7
+                    bin: "7"
+                    status: available
+                    journey_status: ""
+                    size: small
+                    teps: []
+                  - id: 8
+                    bin: "8"
+                    status: occupied
+                    journey_status: ""
+                    size: small
+                    teps: []
+  /journeys:
+    post:
+      tags:
+        - General
+      summary: Create/Update Journeys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                action: collect
+                seizure_report_number: 009988812
+                qr_code: QRCODE123
+                notification_type: activate-phone
+                teps:
+                  - 098877233
+                  - "34858583"
+                location_id: 1
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer abc123
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: journey created successfully
+                data:
+                  transaction_id: 51
+  "/transactions/{id}":
+    put:
+      tags:
+        - General
+      summary: Update transaction (sig and remarks)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                action: deposit
+                signature: base64
+                remarks: sample of remarks!
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer fp9oWTQOIwXNRp08J94fJLbTMjmb0zq57J2OufoapnPLIWW8fu
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          description: value from create journey endpoint
+          example: "35"
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: transaction updated successfully
+                data: null
+    patch:
+      tags:
+        - General
+      summary: complete collect/deposit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                action: deposit
+                email: rnd1@gmail.com
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer fp9oWTQOIwXNRp08J94fJLbTMjmb0zq57J2OufoapnPLIWW8fu
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          description: value from create journey endpoint
+          example: "160"
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Date:
+              schema:
+                type: string
+                example: "Fri, 15 Nov 2024 00:46:04 GMT"
+            Content-Type:
+              schema:
+                type: string
+                example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+                example: "150"
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            x-srv-trace:
+              schema:
+                type: string
+                example: v=1;t=e184b3aabb0ee6dd
+            x-srv-span:
+              schema:
+                type: string
+                example: v=1;s=bce3722a3db9f385
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: "*"
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: "120"
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: "117"
+            X-RateLimit-Reset:
+              schema:
+                type: integer
+                example: "1731631572"
+            ETag:
+              schema:
+                type: string
+                example: W/"96-S/5iQ2y1qqIInh5BwoPc+chvDJU"
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: transaction updated successfully
+                data: null
+    delete:
+      tags:
+        - General
+      summary: Cancel transaction
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer abc123
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: "45"
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: transaction deleted successfully
+                data: null
+  /tep-codes:
+    get:
+      tags:
+        - General
+      summary: Get Tep codes (phone/tablet)
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          description: use X_API_TOKEN as auth token for phone
+          example: Bearer z39ZIfByXGtUso7ulgAfmF0R07AWu3t2SoCRZtfec_ZL1npGWl
+        - name: transaction_id
+          in: query
+          schema:
+            type: integer
+          description: from push notification
+          example: "3"
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: tep numbers fetched successfully
+                data:
+                  - id: 12
+                    tep_no: 098877233
+                    front: false
+                    back: false
+                  - id: 13
+                    tep_no: "8877123"
+                    front: false
+                    back: false
+  /teps-images:
+    post:
+      tags:
+        - General
+      summary: Teps Images (phone)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                transaction_id: 13
+                firebase_id: dhekioqi2y7ZA
+                data:
+                  - tep_id: 1
+                    front: base64
+                    back: base674
+                  - tep_id: 2
+                    front: base64
+                    back: base674
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          description: use X_API_TOKEN as auth token
+          example: Bearer abc123
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: tep images stored successfully
+                data: null
+  /tep-bags/images:
+    post:
+      tags:
+        - General
+      summary: Tep bags presigned
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                transaction_id: 55
+                data:
+                  - tep_id: 145
+                    front: F-20240621-2017-1-NTYD-1736420037.png
+                    back: F-20240621-2017-1-NTYD-1736420038.png
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          description: use X_API_TOKEN as auth token
+          example: Bearer z39ZIfByXGtUso7ulgAfmF0R07AWu3t2SoCRZtfec_ZL1npGWl
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: tep bags presigned urls created successfully
+                data: null
+  "/lockers/{id}":
+    put:
+      tags:
+        - General
+      summary: Open Locker
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                action: deposit
+                transaction_id: 51
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer abc123
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: "24"
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: locker opened successfully
+                data:
+                  teps:
+                    - 099898
+                    - "888122"
+                  journey_id: 3
+  /devices:
+    post:
+      tags:
+        - General
+      summary: Store FID (phone and tablet)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                firebase_id: 3iekie0
+                type: phone
+                location_id: 1
+                device_token: dskeieii3939ekdk
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          description: X_API_KEY value
+          example: abc123
+      responses:
+        "200":
+          description: "Ok"
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                status: true
+                message: device stored successfully
+                data: null
