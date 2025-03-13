@@ -25,7 +25,7 @@ Android Development: Java
 Mock API Tool: Mockoon
 
 <h2>API</h2>
-[Download File](openapi.yaml)
+[Download File](./openapi.ext)
 
 <h2>Future Improvements</h2>
 
