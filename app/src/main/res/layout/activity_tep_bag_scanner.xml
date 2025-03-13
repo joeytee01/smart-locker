@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <!-- Left Section: Profile -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:id="@+id/profileIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/profile"
+                android:contentDescription="Profile Icon"
+                />
+
+            <TextView
+                android:id="@+id/profileNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Doe, Investigation Officer"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Centered Withdraw Header -->
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdraw"
+            android:textColor="#677BA0"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <!-- Right Section: Date/Time -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/dateTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mon 23 Sep   09:00 AM"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please scan the barcodes of TEP bags using barcode scanner"
+        android:textSize="28sp"
+        android:textColor="@color/text_blue"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="16dp">
+
+        <!-- Left Panel - TEP Bag List -->
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="100dp"
+            android:orientation="vertical">
+
+            <!-- Scrollable Container for Dynamic Rows -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bordered_box"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:id="@+id/tepListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Dynamic rows will be added here programmatically -->
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- Right Panel - Scanner Image -->
+        <ImageView
+            android:id="@+id/scannerImage"
+            android:layout_width="400dp"
+            android:layout_height="350dp"
+            android:layout_weight="1"
+            android:src="@drawable/scanner_image"
+            android:scaleType="fitCenter"
+            android:padding="16dp"
+            android:contentDescription="Barcode scanner"/>
+    </LinearLayout>
+
+    <!-- ========== Bottom Section with Timer Under Next Button ========== -->
+    <LinearLayout
+        android:id="@+id/bottomContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
+
+        <!-- Counter Text on the left -->
+        <TextView
+            android:id="@+id/counterText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0 item scanned"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/text_blue"
+            android:textSize="25sp" />
+
+        <!-- Right Side Container: Buttons and Timer -->
+        <LinearLayout
+            android:id="@+id/rightContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!-- Horizontal layout for Cancel and Next buttons -->
+            <LinearLayout
+                android:id="@+id/buttonContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="100dp">
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="280dp"
+                    android:layout_height="80dp"
+                    android:text="Cancel"
+                    android:textSize="24sp"
+                    android:textColor="@color/text_blue"
+                    android:background="@drawable/button_with_border"
+                    android:layout_marginEnd="16dp" />
+
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="280dp"
+                    android:layout_height="80dp"
+                    android:text="Next"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/button_blue" />
+            </LinearLayout>
+
+            <!-- Timer TextView directly under the Next button -->
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19:50 remaining"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_gravity="end"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

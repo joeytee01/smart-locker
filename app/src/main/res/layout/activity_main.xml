@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient"
+    tools:context=".MainActivity">
+
+    <!-- Top Section: Date/Time on top, then Logos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Date and Time TextView on top, aligned to the right -->
+        <TextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon 23 Sep   09:00 AM"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_gravity="end"
+            android:paddingBottom="8dp"/>
+
+        <!-- Top Row with two logos and date/time text (if needed) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <!-- Logo 1 -->
+            <ImageView
+                android:id="@+id/logoLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_left"
+                android:contentDescription="@string/logo_left_desc"
+                android:adjustViewBounds="true"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Logo 2 -->
+            <ImageView
+                android:id="@+id/logoRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_right"
+                android:contentDescription="@string/logo_right_desc"
+                android:adjustViewBounds="true"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_text"
+        android:textSize="42sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/text_blue"/>
+
+    <!-- Horizontal layout for Investigator and Case Store Officer buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <!-- Button 1: Investigator -->
+        <Button
+            android:id="@+id/investigatorButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="@string/investigator"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"
+            android:layout_marginEnd="10dp"/>
+
+        <!-- Button 2: Case Store Officer -->
+        <Button
+            android:id="@+id/caseStoreOfficerButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="@string/case_store_officer"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+    <!-- Self Enrollment Button, centered and below the horizontal layout -->
+    <Button
+        android:id="@+id/selfEnrollmentButton"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:text="@string/self_enrollment"
+        android:background="@drawable/button_with_border"
+        android:textColor="@color/button_blue"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Bottom help text and link -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/helpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/need_help"
+            android:textSize="24sp"
+            android:textColor="@color/button_blue"
+            android:layout_marginEnd="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/watchTutorialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/watch_video_tutorial"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/button_blue"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:padding="4dp"/>
+    </LinearLayout>
+</LinearLayout>

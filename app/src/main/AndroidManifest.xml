@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartLockerSolution"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PhoneMainActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".Homepage" />
+        <activity android:name=".DivisionPass" />
+        <activity android:name="ExhibitRestrictionActivity"/>
+        <activity android:name="ThingsToNote" />
+        <activity android:name="CameraCaptureActivity"/>
+        <activity android:name="LockerSelectionActivity"/>
+        <activity android:name="ScanTepBagsActivity"/>
+        <activity android:name="SignatureRemarksActivity"/>
+        <activity android:name="PhotoCaptureTabletActivity"/>
+        <activity android:name="CompletionActivity"/>
+        <activity android:name="QrEmailActivity"/>
+        <activity android:name="PinEntryActivity"/>
+        <activity android:name="EmailSelectionActivity"/>
+        <activity android:name="LockerNumberSelectionActivity"/>
+        <activity android:name="EmailEnrollmentActivity"/>
+        <activity android:name=".PhoneScanQRActivity"/>
+        <activity android:name="PhoneTepBagsActivity"/>
+        <activity android:name="PhonePhotoCheckActivity"/>
+        <activity android:name="PhoneFinishedActivity"/>
+        <activity android:name="VideoTutorialsActivity"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.smartlockersolution.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+    </application>
+
+</manifest>

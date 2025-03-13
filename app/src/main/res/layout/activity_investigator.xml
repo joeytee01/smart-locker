@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient"
+    tools:context=".Homepage">
+
+    <!-- Top Section: Date/Time and Title text -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Date and Time -->
+        <TextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mon 23 Sep   09:00 AM"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:gravity="end"
+            android:paddingBottom="8dp"/>
+
+        <!-- Big Title -->
+        <TextView
+            android:id="@+id/bigTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You're here to?"
+            android:textColor="@color/text_blue"
+            android:textSize="52sp"
+            android:textStyle="bold"
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="130dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- Horizontal layout for Deposit/Redeposit and Withdraw buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="-60dp">
+
+        <!-- Button: Deposit/Redeposit -->
+        <Button
+            android:id="@+id/depositButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="Deposit/Redeposit"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Button: Withdraw -->
+        <Button
+            android:id="@+id/withdrawButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="Withdraw"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Space to push the bottom row to the bottom of the screen -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Back Button and Timer Row at the bottom -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <!-- Back Button centered horizontally -->
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="280dp"
+            android:layout_height="83dp"
+            android:layout_centerHorizontal="true"
+            android:text="Back"
+            android:background="@drawable/button_with_border"
+            android:textColor="@color/button_blue"
+            android:textSize="24sp" />
+
+        <!-- Timer TextView aligned to the right -->
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="50dp"
+            android:paddingEnd="16dp"
+            android:text="19:50 remaining"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SmartLockerSolution</string>
+    <string name="logo_left_desc">Logo Left</string>
+    <string name="logo_right_desc">Logo Right</string>
+    <string name="welcome_text">Welcome to Wi-Re</string>
+    <string name="investigator">Investigator</string>
+    <string name="case_store_officer">Case Store Officer</string>
+    <string name="self_enrollment">Self Enrollment</string>
+    <string name="need_help">Need help?</string>
+    <string name="watch_video_tutorial">Watch video tutorial</string>
+    <string name="division_pass_instruction">Please scan your <b>division pass</b> at the terminal</string>
+    <string name="restriction_message">Please <b>do not</b> deposit the following types of\ncase exhibits into the locker.</string>
+    <string name="things_to_note">Please ensure that all case exhibit(s) to be deposited are <b> properly sealed in a polymer bag </b> wherever possible.\n \nFor case exhibit(s) that cannot be sealed in a polymer bag, please attach a serialised case exhibit polymer bag to the alternative packaging instead.</string>
+    <string name="pin_text">"Please enter <b>PIN</b> number"</string>
+</resources>

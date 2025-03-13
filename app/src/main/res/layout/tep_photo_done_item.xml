@@ -1,0 +1,73 @@
+<!-- res/layout/tep_photo_done_item.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="12dp">
+
+    <TextView
+        android:id="@+id/numberText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="start"
+        android:layout_weight="0.5"/>
+
+    <TextView
+        android:id="@+id/idText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:gravity="start"
+        android:layout_weight="2"/>
+
+    <!-- Front Photo Status -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingStart="24dp">
+
+        <ImageView
+            android:id="@+id/frontCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/greentick"
+            android:contentDescription="Front photo status"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Front"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Back Photo Status -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingStart="16dp">
+
+        <ImageView
+            android:id="@+id/backCheck"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/greentick"
+            android:contentDescription="Back photo status"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>

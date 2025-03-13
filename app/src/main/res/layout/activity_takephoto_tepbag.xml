@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <!-- Left Section: Profile -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:id="@+id/profileIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/profile"
+                android:contentDescription="Profile Icon"
+                />
+
+            <TextView
+                android:id="@+id/profileNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Doe, Investigation Officer"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Centered Withdraw Header -->
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdraw"
+            android:textColor="#677BA0"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <!-- Right Section: Date/Time -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/dateTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mon 23 Sep   09:00 AM"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="Use the mobile phone provided to take the photos of TEP bags (front &amp; back)"
+        android:textSize="32sp"
+        android:textColor="@color/text_blue"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="16dp">
+
+        <!-- Left Panel - TEP Bag List -->
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="100dp"
+            android:orientation="vertical">
+
+
+            <!-- Scrollable Container -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bordered_box"
+                android:paddingEnd="16dp">
+
+                <LinearLayout
+                    android:id="@+id/tepListContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Dynamic rows will be added here programmatically -->
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- Right Panel - Scanner Image -->
+        <ImageView
+            android:id="@+id/scannerImage"
+            android:layout_width="400dp"
+            android:layout_height="350dp"
+            android:layout_weight="1"
+            android:src="@drawable/takingpicture"
+            android:scaleType="fitCenter"
+            android:padding="16dp"
+            android:contentDescription="TEP bag photo guide"/>
+    </LinearLayout>
+
+    <!-- Bottom Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
+
+        <!-- Left Section: Show QR Again -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="100dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/scanqrIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/qricon"
+                android:layout_marginTop="8dp"
+                android:contentDescription="QR Icon" />
+
+            <TextView
+                android:id="@+id/scanqr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Show QR again"
+                android:textStyle="bold"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <!-- Right Section: Buttons and Timer (Vertical Container) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:baselineAligned="false">
+
+            <!-- Button Row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="100dp">
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="280dp"
+                    android:layout_height="80dp"
+                    android:text="Cancel"
+                    android:textSize="24sp"
+                    android:background="@drawable/button_with_border"
+                    android:textColor="@color/text_blue"
+                    android:layout_marginEnd="16dp" />
+
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="280dp"
+                    android:layout_height="80dp"
+                    android:text="I'm done taking pictures"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/button_blue" />
+            </LinearLayout>
+
+            <!-- Timer TextView placed below the button row -->
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19:50 remaining"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_gravity="end"
+                android:paddingTop="8dp"
+                android:layout_marginEnd="40dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

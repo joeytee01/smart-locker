@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:elevation="10dp"
+    android:gravity="center_horizontal"> <!-- Centering content horizontally -->
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please place the TEP bag in /n Locker X and close the locker"
+        android:textSize="32sp"
+        android:textColor="@color/text_blue"
+        android:paddingBottom="15dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:text="Confirm"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/button_blue"
+        android:layout_marginBottom="10dp"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/reopenButton"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:text="Re-open Locker"
+        android:background="@drawable/button_with_border"
+        android:textColor="@color/text_blue"
+        android:textSize="24sp"
+        android:layout_marginBottom="10dp"
+        android:elevation="2dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/chooseDifferentSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose different locker size"
+        android:textColor="@color/button_blue"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

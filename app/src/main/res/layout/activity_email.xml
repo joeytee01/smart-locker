@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:padding="16dp"
+    tools:context=".EmailSelectionActivity">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:paddingStart="8dp">
+            <ImageView
+                android:id="@+id/profileIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/profile"
+                android:contentDescription="Profile Icon"/>
+            <TextView
+                android:id="@+id/profileNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Doe, Investigation Officer"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Officer"
+            android:textColor="#677BA0"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end">
+            <TextView
+                android:id="@+id/dateTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mon 23 Sep   09:00 AM"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Content Section -->
+    <LinearLayout
+        android:id="@+id/contentSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerSection"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/selectionPrompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select email ID of intended officer"
+            android:textColor="@color/text_blue"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <!-- Spinner Container -->
+        <RelativeLayout
+            android:id="@+id/spinnerContainer"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/spinner_background">
+            <Spinner
+                android:id="@+id/emailSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:paddingLeft="12dp"
+                android:paddingRight="48dp"
+                android:spinnerMode="dropdown"
+                android:dropDownVerticalOffset="50dp"
+                android:textSize="18sp"
+                android:gravity="center_vertical"/>
+            <ImageView
+                android:id="@+id/spinnerArrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_down"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Button Section -->
+    <LinearLayout
+        android:id="@+id/buttonSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="Cancel"
+            android:background="@drawable/button_with_border"
+            android:textColor="@color/text_blue"
+            android:textSize="24sp"
+            android:layout_marginEnd="16dp"/>
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="Next"
+            android:backgroundTint="@color/button_blue"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <!-- Timer TextView at the bottom right corner -->
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="19:50 remaining"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:padding="16dp"/>
+</RelativeLayout>

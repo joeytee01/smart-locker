@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+    <!-- Camera Preview -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- A semi-transparent overlay (optional) -->
+    <View
+        android:id="@+id/blurOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:alpha="0.0" />
+
+    <!-- Title / Prompt at the Top -->
+    <TextView
+        android:id="@+id/promptTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please look at the camera and press 'Capture'."
+        android:textSize="28sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <!-- Buttons at the Bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="Cancel"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#80000000"
+            android:layout_marginEnd="16dp" />
+
+        <Button
+            android:id="@+id/captureButton"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:text="Capture"
+            android:textSize="24sp"
+            android:textColor="@color/button_blue"
+            android:backgroundTint="@android:color/white" />
+
+    </LinearLayout>
+
+</FrameLayout>

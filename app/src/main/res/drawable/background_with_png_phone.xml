@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- PNG Background Layer -->
+    <item>
+        <bitmap
+            android:src="@drawable/vector"
+            android:gravity="left|center_vertical"
+
+            />
+    </item>
+
+    <!-- Semi-Transparent Gradient Overlay -->
+    <item>
+        <shape>
+            <gradient
+                android:angle="45"
+                android:startColor="#C0D0F0FF"
+                android:endColor="#C0C0E4F8"
+                android:type="linear" />
+        </shape>
+    </item>
+</layer-list>

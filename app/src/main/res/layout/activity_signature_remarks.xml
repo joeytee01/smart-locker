@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <!-- Left Section: Profile -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:paddingStart="8dp">
+
+            <ImageView
+                android:id="@+id/profileIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/profile"
+                android:contentDescription="Profile Icon"
+                />
+
+            <TextView
+                android:id="@+id/profileNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Doe, Investigation Officer"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Centered Withdraw Header -->
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdraw"
+            android:textColor="#677BA0"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+        <!-- Right Section: Date/Time -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/dateTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mon 23 Sep   09:00 AM"
+                android:textColor="#4F607D"
+                android:textSize="14sp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signature"
+            android:textSize="28sp"
+            android:textColor="@color/text_blue"
+            android:layout_marginBottom="16dp"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="8dp">
+
+        <com.example.smartlockersolution.SignatureView
+            android:id="@+id/signatureView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_blue"
+                android:background="@android:color/transparent"
+                android:layout_gravity="top|right"
+                android:padding="8dp"
+                android:layout_margin="8dp"/>
+    </FrameLayout>
+</LinearLayout>
+
+
+<LinearLayout
+android:layout_width="0dp"
+android:layout_height="600dp"
+android:layout_weight="1"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginStart="16dp">
+
+<TextView
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Remarks"
+    android:textSize="28sp"
+    android:textColor="@color/text_blue"
+android:layout_marginBottom="16dp"/>
+
+<EditText
+android:id="@+id/etRemarks"
+android:layout_width="match_parent"
+android:layout_height="0dp"
+android:layout_weight="1"
+android:background="#FFFFFF"
+android:elevation="4dp"
+android:padding="16dp"
+android:gravity="top"
+android:hint="Enter your remarks here..."
+android:inputType="textMultiLine"
+android:layout_marginStart="8dp"/>
+    </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Section with Timer Under Next Button Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:paddingTop="16dp">
+
+        <!-- Button Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="280dp"
+                android:layout_height="80dp"
+                android:text="Cancel"
+                android:textSize="24sp"
+                android:background="@drawable/button_with_border"
+                android:textColor="@color/text_blue"
+                android:layout_marginEnd="16dp"/>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="280dp"
+                android:layout_height="80dp"
+                android:text="Next"
+                android:textSize="24sp"
+                android:backgroundTint="@color/button_blue"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Timer TextView below the button row -->
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19:50 remaining"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="end"
+            android:paddingEnd="16dp"/>
+    </LinearLayout>
+</LinearLayout>
